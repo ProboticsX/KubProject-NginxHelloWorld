@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubproject-nginxhelloworld
+spec:
+  selector:
+    matchLabels:
+      app: kubproject-nginxhelloworld
+  template:
+    metadata:
+      labels:
+        app: kubproject-nginxhelloworld
+    spec:
+      containers:
+      - name: kubproject-nginxhelloworld
+        image: shubham0403/kubproject-nginxhelloworld
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
