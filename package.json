@@ -1,0 +1,15 @@
+{
+  "name": "kubproject-nginxhelloworld",
+  "version": "1.0.0",
+  "description": "\"# KubProject-NginxHelloWorld\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
