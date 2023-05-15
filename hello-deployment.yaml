@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubproject-nginxhello
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kubproject-nginxhello
+  template:
+    metadata:
+      labels:
+        app: kubproject-nginxhello
+    spec:
+      containers:
+      - name: kubproject-nginxhello
+        image: shubham0403/kubproject-nginxhello
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubproject-nginxhello
+spec:
+  type: LoadBalancer
+  selector:
+    app: kubproject-nginxhello
+  ports:
+  - port: 3333
+    targetPort: 3000
+
